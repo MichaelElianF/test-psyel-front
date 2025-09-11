@@ -25,7 +25,7 @@ const menuItems: Ref<MenuItem[]> = ref([
 ])
 </script>
 <template>
-  <v-navigation-drawer location="left">
+  <v-navigation-drawer location="left" mobile-breakpoint="md">
     <v-list max-width="360">
       <v-list-item
         v-for="item in menuItems"

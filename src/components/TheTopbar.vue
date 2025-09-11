@@ -1,21 +1,40 @@
 <script setup lang="ts">
-import logo from '@/assets/ulb-logo.jpg'
+import desktopLogo from '@/assets/ulb-logo.jpg'
+import mobileLogo from '@/assets/ulb-logo-mobile.jpg'
+import { ref } from 'vue'
 import { useDisplay } from 'vuetify'
 const { mdAndUp } = useDisplay()
+const drawer = ref(false)
+const emit = defineEmits<{
+  (e: 'drawer'): void
+}>()
 </script>
 
 <template>
   <v-app-bar elevation="1" height="100" class="d-flex flex-row justify-space-between">
-    <!-- <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
+    <v-app-bar-nav-icon
+      v-if="!mdAndUp"
+      variant="text"
+      @click.stop="$emit('drawer')"
+    ></v-app-bar-nav-icon>
     <div class="d-flex align-center ga-3" style="flex: 0 1 25%">
       <RouterLink to="/" class="d-flex h-100 ml-3 mr-1">
         <RouterLink to="/" class="d-flex ml-3 mr-1">
           <v-img
             contain
-            :src="logo"
+            :src="desktopLogo"
             min-width="340px"
             inline
             class="d-none d-sm-block"
+            style="cursor: pointer"
+          >
+          </v-img>
+          <v-img
+            contain
+            :src="mobileLogo"
+            min-width="60px"
+            inline
+            class="d-sm-none"
             style="cursor: pointer"
           >
           </v-img>
