@@ -18,7 +18,7 @@ const drawer = ref(true)
       ></TheTopbar>
       <TheSidemenu v-model="drawer"></TheSidemenu>
       <VMain>
-        <v-container style="max-width: 1200px">
+        <v-container style="max-width: 1200px" class="mt-6">
           <RouterView />
         </v-container>
       </VMain>
