@@ -11,7 +11,13 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <v-app-bar elevation="1" height="100" class="d-flex flex-row justify-space-between">
+  <v-app-bar
+    border="sm"
+    flat
+    elevation="0"
+    height="100"
+    class="d-flex flex-row justify-space-between border-t-0 border-e-0 border-s-0"
+  >
     <v-app-bar-nav-icon
       v-if="!mdAndUp"
       variant="text"
