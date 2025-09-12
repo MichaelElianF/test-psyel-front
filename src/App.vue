@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import TheTopbar from './components/TheTopbar.vue'
 import TheSidemenu from './components/TheSidemenu.vue'
 import { ref } from 'vue'
-const drawer = ref(false)
+const drawer = ref(true)
 </script>
 
 <template>
