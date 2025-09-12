@@ -1,3 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import StudentList from '../components/students/StudentList.vue'
+</script>
 
-<template>Students list</template>
+<template>
+  <Suspense>
+    <StudentList></StudentList>
+  </Suspense>
+</template>
