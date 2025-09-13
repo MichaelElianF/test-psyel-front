@@ -59,13 +59,40 @@ onMounted(async () => {
 </script>
 
 <template>
-  <template v-if="notesList && courses">
-    <v-sheet> année: {{ year }} <v-chip size="sm" v-if="successfull">réussie</v-chip></v-sheet>
-    <v-sheet>Etcs Total = {{ etcs_total }}</v-sheet>
-    <v-sheet>Etcs Validées = {{ etcs_total_validated }}</v-sheet>
-    <v-sheet v-for="(course, index) in subscribed_courses" :key="index">
-      {{ course?.intitule }} {{ course.credit }} |
-      {{ course.note }}
-    </v-sheet>
-  </template>
+  <v-card flat border="sm" v-if="notesList && courses" width="100%">
+    <v-card-title class="d-flex align-center bg-grey-lighten-5 text-primary ga-2">
+      Année: {{ year
+      }}<v-chip
+        class="text-body-2 font-weight-medium"
+        color="success"
+        size="small"
+        v-if="successfull"
+        >réussie</v-chip
+      >
+      <div class="d-flex ml-auto ga-1 text-grey-darken-1">
+        ECTS: <span class="text-primary">{{ etcs_total_validated }}</span
+        >/<span>{{ etcs_total }}</span>
+      </div>
+    </v-card-title>
+    <v-card-item>
+      <v-table>
+        <thead>
+          <tr>
+            <th class="text-left w-50">Intitulé</th>
+            <th class="text-left w-25">Titulaire</th>
+            <th class="text-left">Note</th>
+            <th class="text-left">Crédit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(course, index) in subscribed_courses" :key="index">
+            <td>{{ course.intitule }}</td>
+            <td>{{ course.titulaire }}</td>
+            <td>{{ course.note }}</td>
+            <td>{{ course.credit }}</td>
+          </tr>
+        </tbody>
+      </v-table>
+    </v-card-item>
+  </v-card>
 </template>

@@ -27,23 +27,59 @@ onMounted(async () => {
 
 <template>
   <template v-if="inscriptions && student">
-    <v-card> {{ student.prenom }} {{ student.nom }} </v-card>
     <v-row>
-      <v-col
-        v-for="(inscription, index) in inscriptions"
-        :key="inscription.matricule"
-        cols="12"
-        sm="6"
-        md="4"
-      >
-        <StudentYear
-          v-if="props.id && notesList"
-          :year="inscription.annee_etude"
-          :notes-list="notesList"
-          :mnemonique-list="JSON.parse(inscription.cours_json)"
-        ></StudentYear>
+      <v-col cols="12" md="4">
+        <v-card
+          width="100%"
+          color="primary"
+          variant="tonal"
+          min-height="240px"
+          :class="[
+            'd-flex',
+            'flex-column',
+            'align-center',
+            'justify-space-evenly',
+            'pa-5',
+            'user-profile',
+          ]"
+        >
+          <v-avatar size="120">
+            <v-img :src="`https://api.samplefaces.com/face?width=150&n=${index}`"></v-img>
+          </v-avatar>
+          <div class="text-center">
+            <h3 class="text-h5 font-weight-medium">{{ student.prenom }} {{ student.nom }}</h3>
+            <h4 class="font-weight-regular">{{ student.matricule }}</h4>
+          </div>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-row>
+          <v-col
+            v-for="(inscription, index) in inscriptions"
+            :key="inscription.matricule"
+            cols="12"
+          >
+            <StudentYear
+              v-if="props.id && notesList"
+              :year="inscription.annee_etude"
+              :notes-list="notesList"
+              :mnemonique-list="JSON.parse(inscription.cours_json)"
+            ></StudentYear>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </template>
   <div v-else>Loading...</div>
 </template>
+
+<style lang="scss" scoped>
+@use 'sass:map';
+@use 'vuetify/settings';
+
+$breakpoint: map.get(settings.$display-breakpoints, 'md-and-up');
+.user-profile {
+  position: sticky;
+  top: calc((settings.$spacer * 4 + var(--v-layout-top)));
+}
+</style>
