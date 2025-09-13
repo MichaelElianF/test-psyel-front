@@ -4,7 +4,7 @@ import type { Inscription } from '@/models/Inscription'
 import type { Note } from '@/models/Note'
 import useAPI from '@/composables/useAPI'
 import { onMounted } from 'vue'
-import StudentYear from './StudentYear.vue'
+import StudentSingleYear from './StudentSingleYear.vue'
 
 const props = defineProps({
   id: String,
@@ -59,12 +59,12 @@ onMounted(async () => {
             :key="inscription.matricule"
             cols="12"
           >
-            <StudentYear
+            <StudentSingleYear
               v-if="props.id && notesList"
               :year="inscription.annee_etude"
               :notes-list="notesList"
               :mnemonique-list="JSON.parse(inscription.cours_json)"
-            ></StudentYear>
+            ></StudentSingleYear>
           </v-col>
         </v-row>
       </v-col>
