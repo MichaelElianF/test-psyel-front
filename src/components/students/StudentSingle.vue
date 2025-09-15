@@ -6,6 +6,7 @@ import useAPI from '@/composables/useAPI'
 import { onMounted } from 'vue'
 import StudentSingleYear from './StudentSingleYear.vue'
 import BackBtn from '@/components/BackBtn.vue'
+import sumDigit from '@/helpers/sum-digits'
 
 const props = defineProps({
   id: String,
@@ -48,7 +49,9 @@ onMounted(async () => {
           ]"
         >
           <v-avatar size="120">
-            <v-img :src="`https://api.samplefaces.com/face?width=150&n=${index}`"></v-img>
+            <v-img
+              :src="`https://mockmind-api.uifaces.co/content/human/2${sumDigit(student.matricule)}.jpg`"
+            ></v-img>
           </v-avatar>
           <div class="text-center">
             <h3 class="text-h5 font-weight-medium">{{ student.prenom }} {{ student.nom }}</h3>
