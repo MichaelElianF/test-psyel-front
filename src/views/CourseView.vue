@@ -3,7 +3,5 @@ import CourseList from '../components/courses/CourseList.vue'
 </script>
 
 <template>
-  <Suspense>
-    <CourseList></CourseList>
-  </Suspense>
+  <CourseList></CourseList>
 </template>

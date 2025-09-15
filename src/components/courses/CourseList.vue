@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { Cours } from '@/models/Cours'
 import useAPI from '@/composables/useAPI'
+import { onMounted } from 'vue'
 
 const api = useAPI()
-const response = await api.get<Array<Cours>>('/cours')
+const coursesList = ref<Cours[]>()
 
-const coursesList = computed(() => {
-  return response.data
+onMounted(async () => {
+  const response = await api.get<Array<Cours>>('/cours')
+  coursesList.value = response.data
 })
 </script>
 
@@ -19,7 +21,7 @@ const coursesList = computed(() => {
         color="primary"
         rounded="lg"
         class="d-flex align-center pa-6 ga-2"
-        @click="$router.push({ name: 'course', params: { id: course.mnemonique } })"
+        @click="$router.push({ name: 'courseSingle', params: { id: course.mnemonique } })"
       >
         <h2 class="text-body-1 font-weight-bold d-inline-flex">{{ course.intitule }}</h2>
       </v-card>

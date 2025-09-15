@@ -1,21 +1,28 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { Inscription } from '@/models/Inscription'
 import useAPI from '@/composables/useAPI'
 import StudentCard from './StudentCard.vue'
+import { onMounted } from 'vue'
 
 const api = useAPI()
-const response = await api.get<Array<Inscription>>('/inscriptions')
+
+const inscriptions = ref<Inscription[]>()
 
 const studentsList = computed(() => {
   // Reduce method to get unique objects
-  let output = response.data.reduce((acc: Inscription[], obj) => {
+  let output = inscriptions?.value?.reduce((acc: Inscription[], obj) => {
     if (!acc.some((o) => o.matricule == obj.matricule)) {
       acc.push(obj)
     }
     return acc
   }, [])
   return output
+})
+
+onMounted(async () => {
+  const response = await api.get<Array<Inscription>>('/inscriptions')
+  inscriptions.value = response.data
 })
 </script>
 
