@@ -1,6 +1,25 @@
-# ulb-front
+## ulb-front
 
-This template should help get you started developing with Vue 3 in Vite.
+technical test: front-end calling and consuming a given API, build with Vue3/Typscript.
+
+Deployed here: https://tangerine-concha-c98318.netlify.app/
+
+## Local development
+
+In local env you need a proxy-server,
+
+- clone this repo `git clone https://github.com/MichaelElianF/ulb-proxy-server`
+
+- install dependencies `npm i`
+
+- then start the server `npm run start`
+
+you can now start the Vite front app:
+
+- `npm i`
+- `npm run dev`
+
+---
 
 ## Recommended IDE Setup
 
