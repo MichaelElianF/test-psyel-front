@@ -1,7 +1,3 @@
+/api/*  https://b0s0kwos00g48ow8cg0skg4w.89.116.111.143.sslip.io/:splat  200
 [build]
 command = "npm run build"
-[[redirects]]
-  force = true
-  from = "/api"
-  status = 200
-  to = "https://b0s0kwos00g48ow8cg0skg4w.89.116.111.143.sslip.io"
