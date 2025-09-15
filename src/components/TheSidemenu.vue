@@ -36,19 +36,20 @@ const menuItems: Ref<MenuItem[]> = ref([
     theme="dark"
   >
     <v-list max-width="360" class="mt-6">
-      <v-list-item
-        v-for="item in menuItems"
-        color="primary"
-        class="px-6"
-        :active="$route.name == item.name"
-        link
-        :title="item.label"
-        @click="$router.push(item.slug)"
-      >
-        <template v-slot:prepend>
-          <v-icon size="30">{{ item.icon }}</v-icon>
-        </template>
-      </v-list-item>
+      <router-link :to="item.slug" custom v-slot="{ isActive }" v-for="item in menuItems">
+        <v-list-item
+          color="primary"
+          class="px-6"
+          :active="isActive"
+          link
+          :title="item.label"
+          @click="$router.push(item.slug)"
+        >
+          <template v-slot:prepend>
+            <v-icon size="30">{{ item.icon }}</v-icon>
+          </template>
+        </v-list-item>
+      </router-link>
     </v-list>
   </v-navigation-drawer>
 </template>

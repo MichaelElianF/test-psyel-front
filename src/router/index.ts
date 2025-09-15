@@ -11,24 +11,18 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: StudentView,
-    },
-    {
-      path: '/student/:id',
-      name: 'studentSingle',
-      props: true,
-      component: StudentSingle,
+      children: [
+        { path: '', component: StudentView },
+        { path: 'student/:id', name: 'studentSingle', props: true, component: StudentSingle },
+      ],
     },
     {
       path: '/courses',
       name: 'coursesList',
-      component: CourseView,
-    },
-    {
-      path: '/course/:id',
-      name: 'courseSingle',
-      props: true,
-      component: CourseSingle,
+      children: [
+        { path: '', component: CourseView },
+        { path: 'courses/:id', name: 'courseSingle', props: true, component: CourseSingle },
+      ],
     },
     {
       path: '/reports',
