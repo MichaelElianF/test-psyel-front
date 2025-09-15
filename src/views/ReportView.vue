@@ -1,3 +1,3 @@
 <script setup lang="ts"></script>
 
-<template>Report List</template>
+<template>Under construction</template>

@@ -25,7 +25,6 @@ const { appLoading } = storeToRefs(loadingStore)
       <TheSidemenu v-model="drawer"></TheSidemenu>
       <v-main>
         <!-- main view -->
-
         <v-container style="max-width: 1200px" class="position-relative mt-6 h-100">
           <AppLoading v-if="appLoading" />
           <RouterView v-hide="appLoading" />
