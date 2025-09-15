@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { debounce } from 'lodash'
+import { debounce, throttle } from 'lodash'
 import { ref } from 'vue'
 
 export const useAppLoading = defineStore('appLoading', () => {
@@ -9,11 +9,13 @@ export const useAppLoading = defineStore('appLoading', () => {
 
   const showAppLoading = debounce(() => {
     appLoading.value = true
-  }, 20)
+  }, 250)
 
   const hideAppLoading = debounce(() => {
+    showAppLoading.cancel()
+    showAppLoading.flush()
     appLoading.value = false
-  }, 200)
+  }, 100)
 
   return {
     appLoading,
