@@ -15,7 +15,7 @@ const router = createRouter({
     },
     {
       path: '/student/:id',
-      name: 'student',
+      name: 'studentSingle',
       props: true,
       component: StudentSingle,
     },
@@ -26,7 +26,7 @@ const router = createRouter({
     },
     {
       path: '/course/:id',
-      name: 'course',
+      name: 'courseSingle',
       props: true,
       component: CourseSingle,
     },

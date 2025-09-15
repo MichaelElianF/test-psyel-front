@@ -13,7 +13,7 @@ const props = defineProps<{
     color="primary"
     rounded="lg"
     class="d-flex align-center pa-4 ga-2"
-    @click="$router.push({ name: 'student', params: { id: student.matricule } })"
+    @click="$router.push({ name: 'studentSingle', params: { id: student.matricule } })"
   >
     <v-avatar :size="avatarSize">
       <v-img :src="`https://api.samplefaces.com/face?width=150&n=${index}`"></v-img>

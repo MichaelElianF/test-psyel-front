@@ -86,7 +86,15 @@ onMounted(async () => {
         </thead>
         <tbody>
           <tr v-for="(course, index) in subscribed_courses" :key="index">
-            <td>{{ course.intitule }}</td>
+            <td>
+              <v-btn
+                variant="flat"
+                class="text-lowercase pa-0"
+                density="compact"
+                @click="$router.push({ name: 'courseSingle', params: { id: course.mnemonique } })"
+                >{{ course.intitule }}</v-btn
+              >
+            </td>
             <td>{{ course.titulaire }}</td>
             <td>{{ course.note }}</td>
             <td>{{ course.credit }}</td>
