@@ -18,7 +18,7 @@ const props = defineProps<{
     <v-avatar :size="avatarSize">
       <v-img :src="`https://api.samplefaces.com/face?width=150&n=${index}`"></v-img>
     </v-avatar>
-    <h2 class="text-body-1 d-inline-flex text-grey-darken-3">
+    <h2 class="text-body-1 d-inline-flex font-weight-bold">
       {{ student.prenom }} {{ student.nom }}
     </h2>
   </v-card>
