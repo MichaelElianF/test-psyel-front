@@ -74,7 +74,6 @@ onMounted(async () => {
       </v-col>
     </v-row>
   </template>
-  <div v-else>Loading...</div>
 </template>
 
 <style lang="scss" scoped>

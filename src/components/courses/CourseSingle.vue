@@ -123,5 +123,4 @@ onMounted(async () => {
       </v-row>
     </v-col>
   </v-row>
-  <div v-else>Loading...</div>
 </template>
