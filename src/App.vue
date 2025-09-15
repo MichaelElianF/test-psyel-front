@@ -2,13 +2,19 @@
 import { RouterLink, RouterView } from 'vue-router'
 import TheTopbar from './components/TheTopbar.vue'
 import TheSidemenu from './components/TheSidemenu.vue'
+import AppLoading from './components/AppLoading.vue'
+import { useAppLoading } from '@/store/app-loading'
+import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
+
 const drawer = ref(true)
+const loadingStore = useAppLoading()
+const { appLoading } = storeToRefs(loadingStore)
 </script>
 
 <template>
   <v-responsive>
-    <VApp>
+    <v-app>
       <TheTopbar
         @drawer="
           () => {
@@ -17,12 +23,15 @@ const drawer = ref(true)
         "
       ></TheTopbar>
       <TheSidemenu v-model="drawer"></TheSidemenu>
-      <VMain>
-        <v-container style="max-width: 1200px" class="mt-6">
-          <RouterView />
+      <v-main>
+        <!-- main view -->
+
+        <v-container style="max-width: 1200px" class="position-relative mt-6 h-100">
+          <AppLoading v-if="appLoading" />
+          <RouterView v-hide="appLoading" />
         </v-container>
-      </VMain>
-    </VApp>
+      </v-main>
+    </v-app>
   </v-responsive>
 </template>
 
