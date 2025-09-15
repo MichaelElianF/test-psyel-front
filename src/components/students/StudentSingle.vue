@@ -5,6 +5,7 @@ import type { Note } from '@/models/Note'
 import useAPI from '@/composables/useAPI'
 import { onMounted } from 'vue'
 import StudentSingleYear from './StudentSingleYear.vue'
+import BackBtn from '@/components/BackBtn.vue'
 
 const props = defineProps({
   id: String,
@@ -27,6 +28,9 @@ onMounted(async () => {
 
 <template>
   <template v-if="inscriptions && student">
+    <v-row no-gutters>
+      <back-btn></back-btn>
+    </v-row>
     <v-row>
       <v-col cols="12" md="4">
         <v-card

@@ -5,6 +5,7 @@ import useAPI from '@/composables/useAPI'
 import { onMounted } from 'vue'
 import type { Inscription } from '@/models/Inscription'
 import StudentCard from '@/components/students/StudentCard.vue'
+import BackBtn from '@/components/BackBtn.vue'
 
 const props = defineProps({
   id: String,
@@ -41,6 +42,9 @@ onMounted(async () => {
 </script>
 
 <template>
+  <v-row no-gutters>
+    <back-btn></back-btn>
+  </v-row>
   <v-row v-if="course">
     <v-col cols="12" md="4">
       <v-card
