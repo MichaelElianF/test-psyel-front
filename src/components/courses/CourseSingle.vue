@@ -85,7 +85,7 @@ onMounted(async () => {
             </v-card-title>
             <v-card-item class="pa-6">
               <v-row>
-                <v-col v-for="student in inscriptionsYear3" cols="12" sm="2" md="6">
+                <v-col v-for="student in inscriptionsYear3" cols="12" sm="6">
                   <StudentCard v-if="student" :student="student" :avatar-size="60"></StudentCard>
                 </v-col>
               </v-row>
@@ -99,7 +99,7 @@ onMounted(async () => {
             </v-card-title>
             <v-card-item class="pa-6">
               <v-row>
-                <v-col v-for="student in inscriptionsYear2" cols="12" sm="2" md="6">
+                <v-col v-for="student in inscriptionsYear2" cols="12" sm="6">
                   <StudentCard v-if="student" :student="student" :avatar-size="60"></StudentCard>
                 </v-col>
               </v-row>
@@ -113,7 +113,7 @@ onMounted(async () => {
             </v-card-title>
             <v-card-item class="pa-6">
               <v-row>
-                <v-col v-for="student in inscriptionsYear1" cols="12" sm="2" md="6">
+                <v-col v-for="student in inscriptionsYear1" cols="12" sm="6">
                   <StudentCard v-if="student" :student="student" :avatar-size="60"></StudentCard>
                 </v-col>
               </v-row>

@@ -88,16 +88,17 @@ onMounted(async () => {
           <tr v-for="(course, index) in subscribed_courses" :key="index">
             <td>
               <v-btn
-                variant="flat"
+                variant="text"
                 class="text-lowercase pa-0"
                 density="compact"
+                color="primary"
                 @click="$router.push({ name: 'courseSingle', params: { id: course.mnemonique } })"
                 >{{ course.intitule }}</v-btn
               >
             </td>
             <td>{{ course.titulaire }}</td>
             <td>{{ course.note }}</td>
-            <td>{{ course.credit }}</td>
+            <td>{{ course.note >= 10 ? course.credit : 0 }}</td>
           </tr>
         </tbody>
       </v-table>

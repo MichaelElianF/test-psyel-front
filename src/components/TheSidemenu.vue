@@ -29,24 +29,26 @@ const menuItems: Ref<MenuItem[]> = ref([
 ])
 </script>
 <template>
-  <v-navigation-drawer
-    location="left"
-    mobile-breakpoint="md"
-    class="bg-grey-lighten-4"
-    theme="dark"
-  >
-    <v-list max-width="360" class="mt-6">
+  <v-navigation-drawer location="left" mobile-breakpoint="md" class="bg-grey-lighten-4">
+    <v-list max-width="360" class="mt-6 d-flex flex-column ga-6">
       <router-link :to="item.slug" custom v-slot="{ isActive }" v-for="item in menuItems">
         <v-list-item
           color="primary"
-          class="px-6"
+          class="px-6 font-weight-bold"
           :active="isActive"
           link
-          :title="item.label"
           @click="$router.push(item.slug)"
         >
           <template v-slot:prepend>
-            <v-icon size="30">{{ item.icon }}</v-icon>
+            <v-icon size="32">{{ item.icon }}</v-icon>
+          </template>
+          <template v-slot:title>
+            <h2
+              class="text-body-1 font-weight-bold text-grey-darken-2"
+              :class="{ 'text-primary': isActive }"
+            >
+              {{ item.label }}
+            </h2>
           </template>
         </v-list-item>
       </router-link>
