@@ -1,5 +1,3 @@
-## ulb-front
-
 technical test: front-end calling and consuming a given API, build with Vue3/Typscript.
 
 Deployed here: https://tangerine-concha-c98318.netlify.app/
