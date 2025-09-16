@@ -6,7 +6,7 @@ Deployed here: https://tangerine-concha-c98318.netlify.app/
 
 In local env you need a proxy-server,
 
-- clone this repo `git clone https://github.com/MichaelElianF/ulb-proxy-server`
+- clone this repo `git clone https://github.com/MichaelElianF/test-psyel-proxy-server`
 
 - install dependencies `npm i`
 
